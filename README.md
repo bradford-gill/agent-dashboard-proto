@@ -3,22 +3,22 @@
 ## Backend Flow
 ```mermaid
 graph TD
-    A[CRM<br/>ei: <small>HubSpot, Salesforc, ... </small>] --> E[Workflow Orchestrator<br/><small>Dagster, Airflow, etc.]
+    A[CRM<br/>ei: <small>HubSpot, Salesforc, ... </small>] --> E[Workflow Orchestrator<br/><small>Dagster, Airflow, or etc.]
     B[Slack, Instantly, Beeswax, ...] --> E
     C[Webhooks & APIs] --> E
     D[Snowflake] --> E
+    J[... Other Data Sources] --> E
     
-    E --> F[Agent Monitoring Tables<br/><small><i>Hourly, Daily, Weekly, Monthly etc data</i>]
+    E --> F[Agent Monitoring Tables<br/><small><i>Hourly, Daily, Weekly, Monthly, etc data</i>]
     F --> G[Agent Dashboard]
 ```
 
 ## Frontend pages
-### Page 1: Overview Metrics
+What pages do we need?
 
-### Page 2: Delivery Metrics
-notes:
-- How does a delivery destination affect a workflow?  For example, Slack vs Hubspot vs Instantly
-### Page 3:
+## What mertrics to show:
+[What we should fill in]
+
 
 ## My Thoughts:
 I need to further understand exactly what each agent is going to do. How can we do this?
@@ -38,7 +38,8 @@ What should we communicate with charts? what needs to be time series? what shoul
 
 ### SDR key metrics
 How should we split this across the different pages in the dashboard? 
-how can we show this as a flow? 
+how can we show this as a flow? I want a nice visual flow of the SDR process. Maybe we could have a graph visual showing all of this, then you can click in.
+
 
 **Activity Metrics:**
 - Calls made per day/week
