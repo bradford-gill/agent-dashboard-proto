@@ -26,7 +26,6 @@ This measures MIT’s core data pipeline — how much market intelligence it’s
 
 
 ### 2. **Lift from MIT-Informed Campaigns** (Dependent)
-**Formula:**  
 `(Performance of MIT-backed campaigns - Baseline performance) / Baseline performance`
 
 **Description:**  
@@ -42,9 +41,51 @@ Tracks how often Chad is used to build or modify internal systems, UIs, or logic
 
 ---
 
-### 2. **Time Saved via Automation** (Dependent)  
-**Formula:**  
+### 2. **Time Saved via Automation** (Dependent)   
 `Estimated hours saved based on usage of Chad-built workflows by reps or agents`
 
 **Description:**  
 Measures downstream impact of Chad’s work. Requires feedback or data from other agents or users who experience reduced manual steps or increased efficiency.
+
+# MAC – Multi-Channel Activator
+
+### 1. **Outbound Engagement Rate** (Self-Generated)  
+`(Total Interactions: opens, clicks, replies, etc.) / (Total Outbound Touches Delivered)`
+
+**Description:**  
+Measures how effective MAC’s outreach is across all channels — not just volume, but how often recipients actually engage. Captures overall performance across email, SMS, social, and ads.
+
+### 2. **Engagement Lift from IMA-Qualified Audiences** (Dependent)  
+`(Engagement Rate on IMA Leads - Engagement Rate on Non-IMA Leads) / Engagement Rate on Non-IMA Leads`
+
+**Description:**  
+Quantifies how much better MAC performs when targeting audiences selected by IMA. A higher lift indicates IMA is surfacing high-quality, high-intent leads that drive stronger engagement across channels.
+
+# IMA – Intent Modeling Agent
+
+### 1. **Intent Classification Accuracy** (Self-Generated)  
+`(Number of Correctly Labeled Prospects) / (Total Prospects Scored by IMA)`
+
+**Description:**  
+Measures how accurately IMA identifies buyer intent based on behavior, firmographics, and other signals. A “correct” label is one that aligns with the prospect’s eventual engagement or conversion, based on post-hoc validation.
+
+
+### 2. **Engagement Rate of IMA-Qualified Leads** (Dependent)  
+`(Total Engaged IMA Leads) / (Total IMA Leads Touched by Outreach)`
+
+**Description:**  
+Assesses how likely IMA-flagged prospects are to engage with MAC- or PAT-triggered outreach. Reflects whether IMA is surfacing truly “ready-to-act” leads or simply active, low-fit ones.
+
+# Chip – Copywriter Bot
+
+### 1. **Message Variant Training Coverage** (Self-Generated)  
+`(Number of Outreach Strategies Tested) / (Target Number of Variants per Segment)`
+
+**Description:**  
+Measures how actively Chip is experimenting with different outreach strategies (tone, CTA, structure, length, etc.) across segments. A higher value reflects stronger training data diversity and better-informed personalization models.
+
+### 2. **Engagement Rate Across Chip Variants** (Dependent)  
+`(Total Engaged Recipients) / (Total Messages Sent Using Chip’s Content)`
+
+**Description:**  
+Evaluates how well Chip’s messaging performs across live experiments. Dependent on MAC for delivery and IMA for targeting, this measures whether Chip’s strategy updates are resulting in higher opens, clicks, and replies.
