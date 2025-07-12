@@ -39,8 +39,6 @@ This shows whether campaigns that use MIT's signals actually outperform others. 
 **Description:**  
 Tracks how often Chad is used to build or modify internal systems, UIs, or logic. Reflects its utility in enabling customization without requiring a dev team.
 
----
-
 ### 2. **Time Saved via Automation** (Dependent)   
 `Estimated hours saved based on usage of Chad-built workflows by reps or agents`
 
