@@ -13,7 +13,6 @@ graph TD
     F --> G[Agent Dashboard]
 ```
 
-## Frontend pages
 <!-- made in react -->
 <!-- for each agents
 -4 metrics
@@ -24,6 +23,56 @@ graph TD
     
     follow up notes:
         I think we need to organize this as  -->
+
+## Frontend pages
+
+```mermaid
+graph TD
+    A[Home: Overview Dashboard]
+
+    subgraph Agents
+        B1[FIN - Finance]
+        B2[MIT - Market Intelligence]
+        B3[Chad - Developer Catalyst]
+        B4[MAC - Channel Activator]
+        B5[IMA - Intent Modeler]
+        B6[Chip - Copywriter Bot]
+        B7[PAT - Trigger Engine]
+    end
+
+    subgraph Execution
+        C1[Signals Feed]
+        C2[Campaign Execution]
+    end
+
+    subgraph System
+        D1[Workflow Editor - Chad]
+        D2[Financial Reports - FIN]
+    end
+
+    A --> B1
+    A --> B2
+    A --> B3
+    A --> B4
+    A --> B5
+    A --> B6
+    A --> B7
+    A --> C1
+    A --> C2
+    A --> D1
+    A --> D2
+
+    B2 --> C1
+    B5 --> C1
+    B5 --> C2
+    B6 --> C2
+    B7 --> C2
+    B3 --> D1
+    B1 --> D2
+```
+
+
+
 ### Page 1: Overview Metrics
 Fin: Finance and Accounting  
 <small>Measuring the sales performance via documentation of finalcial data from the GTM strategy.</small>  
