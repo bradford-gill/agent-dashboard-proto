@@ -14,10 +14,7 @@ graph TD
 ```
 
 ## Frontend pages
-What pages do we need?
-
-## What mertrics to show:
-[What we should fill in]
+### Page 1: Overview Metrics
 
 
 ## My Thoughts:
