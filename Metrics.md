@@ -77,13 +77,23 @@ Assesses how likely IMA-flagged prospects are to engage with MAC- or PAT-trigger
 # Chip – Copywriter Bot
 
 ### 1. **Message Variant Training Coverage** (Self-Generated)  
-`(Number of Outreach Strategies Tested) / (Target Number of Variants per Segment)`
-
+`(Number of Outreach Strategies Tested) / (Target Number of Variants per Segment)`  
 **Description:**  
-Measures how actively Chip is experimenting with different outreach strategies (tone, CTA, structure, length, etc.) across segments. A higher value reflects stronger training data diversity and better-informed personalization models.
+Measures how actively Chip is generating and testing message variants across buyer segments. This supports continuous model training and recursive improvement — enabling Chip to learn which tones, structures, and CTAs perform best over time.
 
 ### 2. **Engagement Rate Across Chip Variants** (Dependent)  
-`(Total Engaged Recipients) / (Total Messages Sent Using Chip’s Content)`
-
+`(Total Engaged Recipients) / (Total Messages Sent Using Chip’s Content)`  
 **Description:**  
-Evaluates how well Chip’s messaging performs across live experiments. Dependent on MAC for delivery and IMA for targeting, this measures whether Chip’s strategy updates are resulting in higher opens, clicks, and replies.
+Evaluates how effective Chip’s content is across deployed variants. Relies on MAC for delivery and IMA for targeting. Over time, this feedback loop informs Chip’s ability to prioritize high-performing messaging strategies in future drafts.
+
+# PAT – Trigger Engine
+
+### 1. **Trigger-to-Conversion Rate** (Self-Generated)  
+`(Conversions from PAT-Triggered Outreach) / (Total PAT Triggers Executed)`  
+**Description:**  
+Tracks how often PAT’s behavior-based triggers result in meaningful outcomes (e.g., replies, meetings, deals). Measures the effectiveness of PAT’s ability to identify and act on high-intent moments in real time.
+
+### 2. **Conversion Lift Over Non-PAT Sources** (Dependent)  
+`(Conversion Rate of PAT Leads - Conversion Rate of Non-PAT Leads) / Conversion Rate of Non-PAT Leads`  
+**Description:**  
+Compares the performance of PAT-triggered prospects against leads sourced from other agents or methods (e.g., IMA scoring, MIT campaigns, manual lists). A positive lift suggests behavior-based triggers outperform traditional targeting.
