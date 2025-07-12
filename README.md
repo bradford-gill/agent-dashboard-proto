@@ -14,10 +14,21 @@ graph TD
 ```
 
 ## Frontend pages
-### Page 1: Overview Metrics
+<!-- made in react -->
+<!-- for each agents
+-4 metrics
+    -1 primary
+    -3 secondary
 
-<<<<<<< HEAD
-=======
+    consider organizing by time value
+    
+    follow up notes:
+        I think we need to organize this as  -->
+### Page 1: Overview Metrics
+Fin: Finance and Accounting  
+<small>Measuring the sales performance via documentation of finalcial data from the GTM strategy.</small>  
+<small>Will break down to pre-campaign forecasting vs post-execution. All Quantitative metrics. Performance lies in how accurate projected financial forecasting measures with execution</small>
+
 Pre Sales Campaign Metrics:  
 - Forecasting CAC by campgain
 - Budget allocation and breakdown
@@ -70,7 +81,7 @@ Quantitative Metrics:
         - delivery error
         - channel appropriateness (qual)
         - LLM model effectiveness (qual)
-        - compliance incidents 
+        - compliance incidents
 
 IMA: Identifies high priorty prospects. Main Player.
 <small>The purpose of these metrics is to enable lead targeting. Primarily Quantitative using metrics from MAC. The pre and post execution metrics will be integral as they can also be used to update features within the model.</small>
@@ -97,7 +108,6 @@ Post Campaign:
 notes:
 - How does a delivery destination affect a workflow?  For example, Slack vs Hubspot vs Instantly
 ### Page 3:
->>>>>>> 00132fe (Andrew_Update)
 
 ## My Thoughts:
 I need to further understand exactly what each agent is going to do. How can we do this?
