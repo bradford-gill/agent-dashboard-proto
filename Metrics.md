@@ -99,3 +99,41 @@ Tracks how often PAT’s behavior-based triggers result in meaningful outcomes (
 `(Conversion Rate of PAT Leads - Conversion Rate of Non-PAT Leads) / Conversion Rate of Non-PAT Leads`  
 **Description:**  
 Compares the performance of PAT-triggered prospects against leads sourced from other agents or methods (e.g., IMA scoring, MIT campaigns, manual lists). A positive lift suggests behavior-based triggers outperform traditional targeting.
+
+```mermaid
+graph TD
+    %% Level 1 - Home Page
+    Home[Home Page]
+
+    %% Level 2 - Agent Detail Pages
+    Home --> FIN[FIN]
+    Home --> MIT[MIT]
+    Home --> Chad[Chad]
+    Home --> MAC[MAC]
+    Home --> IMA[IMA]
+    Home --> Chip[Chip]
+    Home --> PAT[PAT]
+
+    FIN --> FIN_Detail[FIN Detail Page]
+    MIT --> MIT_Detail[MIT Detail Page]
+    Chad --> Chad_Detail[Chad Detail Page]
+    MAC --> MAC_Detail[MAC Detail Page]
+    IMA --> IMA_Detail[IMA Detail Page]
+    Chip --> Chip_Detail[Chip Detail Page]
+    PAT --> PAT_Detail[PAT Detail Page]
+
+    %% Level 3 - Metric / Raw Data Views
+    FIN_Detail --> FIN_Metrics[FIN Metrics & Raw Data]
+    MIT_Detail --> MIT_Metrics[MIT Metrics & Raw Data]
+    Chad_Detail --> Chad_Metrics[Chad Metrics & Raw Data]
+    MAC_Detail --> MAC_Metrics[MAC Metrics & Raw Data]
+    IMA_Detail --> IMA_Metrics[IMA Metrics & Raw Data]
+    Chip_Detail --> Chip_Metrics[Chip Metrics & Raw Data]
+    PAT_Detail --> PAT_Metrics[PAT Metrics & Raw Data]
+```
+
+
+
+
+
+
