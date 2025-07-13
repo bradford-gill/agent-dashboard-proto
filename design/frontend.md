@@ -1,8 +1,10 @@
+# Agent Dashboard
+
+# Metrics:
 Each Agent will have two metrics for the concept deliverable. One will be using data generated entirely within the agent and one will require data from other agents.
 
 Agents:
-
-# FIN – Finance Automation
+## FIN – Finance Automation
 
 ### 1. **Total ROI per Campaign** (Self-Generated)
 
@@ -12,13 +14,19 @@ Agents:
 This measures how much revenue a campaign generated relative to its cost. FIN calculates both inputs internally using data from CRM and cost platforms.
 
 
-### 2. **Customer Acquisition Cost (CAC)** (Dependent)  
+### 2. **Customer Acquisition Cost (CAC)** (Dependent)
 `Total Spend / Number of New Customers`
 
-**Description:**  
+**Description:**
 CAC shows how much it costs to acquire one customer. While FIN computes the number, it depends on lead quality and volume from IMA, delivery costs from MAC, and timing/content impact from PAT and Chip.
 
-# MIT – Market Intelligence
+### 3. **Revenue Attribution Accuracy** (Self-Generated)
+`(Correctly Attributed Revenue) / (Total Revenue Tracked)`
+
+**Description:**
+Measures how accurately FIN can trace revenue back to specific campaigns, channels, and touchpoints. This reflects FIN's ability to provide reliable attribution data for optimization decisions across all agents.
+
+## MIT – Market Intelligence
 
 ### 1. **Signal Ingestion Volume** (Self-Generated)
 `Count of raw, unique external signals ingested per period`
@@ -33,7 +41,7 @@ This measures MIT’s core data pipeline — how much market intelligence it’s
 **Description:**  
 This shows whether campaigns that use MIT's signals actually outperform others. Requires execution by PAT, MAC, and Chip — and tracking by FIN — to compare reply/conversion rates or ROI uplift.
 
-# Chad – Developer Catalyst
+## Chad – Developer Catalyst
 
 ### 1. **Workflow Deployment Count** (Self-Generated)  
 `Number of new or updated internal workflows deployed`
@@ -47,7 +55,7 @@ Tracks how often Chad is used to build or modify internal systems, UIs, or logic
 **Description:**  
 Measures downstream impact of Chad’s work. Requires feedback or data from other agents or users who experience reduced manual steps or increased efficiency.
 
-# MAC – Multi-Channel Activator
+## MAC – Multi-Channel Activator
 
 ### 1. **Outbound Engagement Rate** (Self-Generated)  
 `(Total Interactions: opens, clicks, replies, etc.) / (Total Outbound Touches Delivered)`
@@ -55,13 +63,19 @@ Measures downstream impact of Chad’s work. Requires feedback or data from othe
 **Description:**  
 Measures how effective MAC’s outreach is across all channels — not just volume, but how often recipients actually engage. Captures overall performance across email, SMS, social, and ads.
 
-### 2. **Engagement Lift from IMA-Qualified Audiences** (Dependent)  
+### 2. **Engagement Lift from IMA-Qualified Audiences** (Dependent)
 `(Engagement Rate on IMA Leads - Engagement Rate on Non-IMA Leads) / Engagement Rate on Non-IMA Leads`
 
-**Description:**  
+**Description:**
 Quantifies how much better MAC performs when targeting audiences selected by IMA. A higher lift indicates IMA is surfacing high-quality, high-intent leads that drive stronger engagement across channels.
 
-# IMA – Intent Modeling Agent
+### 3. **Channel Performance Distribution** (Self-Generated)
+`Engagement Rate by Channel (Email, SMS, Social, Ads) with Volume Weighting`
+
+**Description:**
+Tracks which channels are performing best and how engagement is distributed across MAC's multi-channel approach. Helps identify optimal channel mix and potential underperforming channels that need optimization.
+
+## IMA – Intent Modeling Agent
 
 ### 1. **Intent Classification Accuracy** (Self-Generated)  
 `(Number of Correctly Labeled Prospects) / (Total Prospects Scored by IMA)`
@@ -76,7 +90,7 @@ Measures how accurately IMA identifies buyer intent based on behavior, firmograp
 **Description:**  
 Assesses how likely IMA-flagged prospects are to engage with MAC- or PAT-triggered outreach. Reflects whether IMA is surfacing truly “ready-to-act” leads or simply active, low-fit ones.
 
-# Chip – Copywriter Bot
+## Chip – Copywriter Bot
 
 ### 1. **Message Variant Training Coverage** (Self-Generated)  
 `(Number of Outreach Strategies Tested) / (Target Number of Variants per Segment)`  
@@ -88,7 +102,7 @@ Measures how actively Chip is generating and testing message variants across buy
 **Description:**  
 Evaluates how effective Chip’s content is across deployed variants. Relies on MAC for delivery and IMA for targeting. Over time, this feedback loop informs Chip’s ability to prioritize high-performing messaging strategies in future drafts.
 
-# PAT – Trigger Engine
+## PAT – Trigger Engine
 
 ### 1. **Trigger-to-Conversion Rate** (Self-Generated)  
 `(Conversions from PAT-Triggered Outreach) / (Total PAT Triggers Executed)`  
@@ -99,3 +113,48 @@ Tracks how often PAT’s behavior-based triggers result in meaningful outcomes (
 `(Conversion Rate of PAT Leads - Conversion Rate of Non-PAT Leads) / Conversion Rate of Non-PAT Leads`  
 **Description:**  
 Compares the performance of PAT-triggered prospects against leads sourced from other agents or methods (e.g., IMA scoring, MIT campaigns, manual lists). A positive lift suggests behavior-based triggers outperform traditional targeting.
+
+
+# Pages 
+
+## login page
+hardcoded login page for now. 
+accounts:
+- username: brad, password: password
+- username: andrew, password: password
+- username: jim, password: password
+
+## Header:
+nav bar with 
+- logo (will be provided by design team later)
+- link to page: Dashboard 
+- link to page: backend design
+- logout (send to login page)
+
+## Dashboard Page:
+A dash board made up of cells.
+
+each cell represents an agent above (FIN, MIT, Chad, MAC, IMA, Chip, PAT)
+
+Please display the Title (ei FIN, MIT, etc.) with the subtitle (ei Finance Automation, Market Intelligence, etc.) below it. 
+display the metric name and value.
+
+Please mock data for each of the metrics above. make sure the mocked data makes sense in relative terms.
+Mock this data in its own file called MockData.ts
+
+## Backend Design Page
+Render mermaid graph & make it look nice
+## Backend Flow
+```mermaid
+graph TD
+    A[CRM<br/>ei: <small>HubSpot, Salesforc, ... </small>] --> E[Workflow Orchestrator<br/><small>Dagster, Airflow, or etc.]
+    B[Slack, Instantly, Beeswax, ...] --> E
+    C[Webhooks & APIs] --> E
+    D[Snowflake] --> E
+    J[... Other Data Sources] --> E
+    
+    E --> F[Agent Monitoring Tables<br/><small><i>Hourly, Daily, Weekly, Monthly, etc data</i>]
+    F --> G[Agent Dashboard]
+```
+
+
