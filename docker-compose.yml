@@ -1,11 +1,11 @@
-version: '3.8'
-
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: react-app
+    expose:
+      - "80"
     networks:
       - app-network
 

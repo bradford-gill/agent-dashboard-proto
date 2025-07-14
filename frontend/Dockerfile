@@ -1,27 +1,32 @@
-# Use Node.js official image as base
-FROM node:18-alpine as build
+# Use Node.js official image as base (using standard debian-based image for better compatibility)
+FROM node:18 as build
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./frontend/
+# Copy package files from the project subdirectory
+COPY project/package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install dependencies (including dev dependencies for build)
+RUN npm ci
 
-# Copy source code
-COPY . .
+# Copy source code from the project subdirectory
+COPY project/ ./
 
 # Build the React app
 RUN npm run build
 
-# Create a minimal image with only the build output
-FROM alpine:latest
+# Create a minimal image with nginx to serve the static files
+FROM nginx:alpine
 
-WORKDIR /app
+# Copy built app from build stage to nginx html directory
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy built app from build stage
-COPY --from=build /app/build ./build
+# Copy custom nginx config if needed (optional)
+# COPY nginx.conf /etc/nginx/nginx.conf
 
-# The build output is now in /app/build for Caddy or another server to serve
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
