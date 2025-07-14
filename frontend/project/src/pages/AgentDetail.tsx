@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, TrendingUp, Users, Cog, MessageSquare, Brain, PenTool, Zap, DollarSign } from 'lucide-react';
 import { mockAgents } from '../data/MockData';
+import PerformanceTrendsChart from '../components/PerformanceTrendsChart';
 
 const getAgentIcon = (agentId: string) => {
   switch (agentId) {
@@ -48,9 +49,9 @@ const getAgentColor = (agentId: string) => {
 export default function AgentDetail() {
   const { agentId } = useParams<{ agentId: string }>();
   const navigate = useNavigate();
-  
+
   const agent = mockAgents.find(a => a.id === agentId);
-  
+
   if (!agent) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -81,7 +82,7 @@ export default function AgentDetail() {
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Dashboard</span>
           </button>
-          
+
           <div className="flex items-center space-x-4">
             <div className={`p-3 rounded-xl ${iconColorClass}`}>
               {getAgentIcon(agent.id)}
@@ -99,11 +100,10 @@ export default function AgentDetail() {
             <div key={index} className="bg-surface rounded-xl shadow-lg border border-border p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-text-primary">{metric.name}</h3>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  metric.type === 'self-generated'
-                    ? 'bg-secondary/20 text-secondary'
-                    : 'bg-primary/20 text-primary'
-                }`}>
+                <span className={`px-3 py-1 rounded-full text-sm font-medium ${metric.type === 'self-generated'
+                  ? 'bg-secondary/20 text-secondary'
+                  : 'bg-primary/20 text-primary'
+                  }`}>
                   {metric.type === 'self-generated' ? 'Self-Generated' : 'Dependent'}
                 </span>
               </div>
@@ -116,20 +116,14 @@ export default function AgentDetail() {
         {/* Detailed Information Section */}
         <div className="bg-surface rounded-xl shadow-lg border border-border p-8">
           <h2 className="text-2xl font-bold text-text-primary mb-6">Detailed Analytics</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Performance Trends */}
-            <div>
-              <h3 className="text-lg font-semibold text-text-primary mb-4">Performance Trends</h3>
-              <div className="bg-background rounded-lg p-6 border border-border">
-                <div className="text-center text-text-secondary py-12">
-                  <TrendingUp className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                  <p>Performance trend charts would be displayed here</p>
-                  <p className="text-sm mt-2">Historical data visualization coming soon</p>
-                </div>
-              </div>
-            </div>
 
+          {/* Performance Trends - Full Width Row */}
+          <div className="mb-8">
+            <PerformanceTrendsChart metrics={agent.metrics} />
+          </div>
+
+          {/* Recent Activity and Configuration - Side by Side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Recent Activity */}
             <div>
               <h3 className="text-lg font-semibold text-text-primary mb-4">Recent Activity</h3>
@@ -159,31 +153,31 @@ export default function AgentDetail() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Configuration Section */}
-          <div className="mt-8">
-            <h3 className="text-lg font-semibold text-text-primary mb-4">Agent Configuration</h3>
-            <div className="bg-background rounded-lg p-6 border border-border">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-medium text-text-primary mb-2">Operational Status</h4>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                    <span className="text-text-secondary">Active</span>
+            {/* Agent Configuration */}
+            <div>
+              <h3 className="text-lg font-semibold text-text-primary mb-4">Agent Configuration</h3>
+              <div className="bg-background rounded-lg p-6 border border-border">
+                <div className="grid grid-cols-1 gap-6">
+                  <div>
+                    <h4 className="font-medium text-text-primary mb-2">Operational Status</h4>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                      <span className="text-text-secondary">Active</span>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <h4 className="font-medium text-text-primary mb-2">Last Updated</h4>
-                  <p className="text-text-secondary">Today at 3:42 PM</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-text-primary mb-2">Data Sources</h4>
-                  <p className="text-text-secondary">{agent.metrics.length} active metrics</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-text-primary mb-2">Update Frequency</h4>
-                  <p className="text-text-secondary">Real-time</p>
+                  <div>
+                    <h4 className="font-medium text-text-primary mb-2">Last Updated</h4>
+                    <p className="text-text-secondary">Today at 3:42 PM</p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-text-primary mb-2">Data Sources</h4>
+                    <p className="text-text-secondary">{agent.metrics.length} active metrics</p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-text-primary mb-2">Update Frequency</h4>
+                    <p className="text-text-secondary">Real-time</p>
+                  </div>
                 </div>
               </div>
             </div>

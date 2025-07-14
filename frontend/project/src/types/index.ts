@@ -10,6 +10,18 @@ export interface Metric {
   value: string;
   type: 'self-generated' | 'dependent';
   description: string;
+  timeSeriesData?: TimeSeriesData;
+}
+
+export interface TimeSeriesData {
+  daily: DataPoint[];
+  weekly: DataPoint[];
+  monthly: DataPoint[];
+}
+
+export interface DataPoint {
+  date: string;
+  value: number;
 }
 
 export interface User {
